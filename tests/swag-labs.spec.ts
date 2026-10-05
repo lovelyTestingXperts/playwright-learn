@@ -29,17 +29,27 @@ page.getByText()
       await expect(page.getByText('Invalid credentials provided.')).toBeVisible();
       - if Exact match flag if partial matching matches too many elements
       add -> { exact: true }
-      page.getByTestId()
+
+page.getByTestId()
       - Finds elements based on a dedicated test attribute
       -     <div data-testid="kanban-column-in-progress">...</div> 
         for this html code can be written like
             await page.getByTestId('kanban-column-in-progress').locator('button').first().click();
+
+Locator 
+    - locators are used to fetch DOM elemnt from ui
+    - page.locator('css-selector') or page.locator('xpath-selector')
+    - methods 
+        - .first() to fetch first element from the list of elements
+        - .last() to fetch last element from the list of elements
+        - .nth() to fetch nth element from the list of elements
+        - .filter({ hasText: 'text' }) to filter the list of elements based on text
+        - .allTextContents() to fetch all the text contents of the list of elements
+        - .map() to map the list of elements to a new list of elements
+
+
 */
 // ----------------------- { NOTES ENDS} ----------------------
-
-
-
-
 
 
 
@@ -50,8 +60,6 @@ page.getByText()
 //     await page.getByRole('button', { name: 'Login' }).click();
 //     // Expect a title "to contain" a substring.
 //     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
-
-
 // });
 
 
@@ -79,21 +87,20 @@ page.getByText()
 //     await expect(addToCartBtn).toHaveText('Remove')
 //     // await expect(page).toHaveURL('https://www.saucedemo.com/cart.html')
 // })
-test('check product quantity and max price', async ({ page }) => {
-    await page.goto('https://www.saucedemo.com/');
-    await page.getByLabel('Username').fill('standard_user');
-    await page.getByLabel('Password').fill('secret_sauce');
-    await page.getByRole('button', { name: 'Login' }).click();
-    const products = page.locator('.inventory_item')
-    const targetProductNames = await products.locator('.inventory_item_name ').allTextContents()
-    const targetProductPrices = (await products.locator('.inventory_item_price ').allTextContents()).map(x => +x.replace('$', ''))
-    console.log(targetProductNames)
-    console.log(Math.max(...targetProductPrices))
-    expect(targetProductNames.length).toEqual(6)
-    expect(targetProductNames).toContain('Sauce Labs Backpack')
-    console.log()
+// test('check product quantity and max price', async ({ page }) => {
+//     // login
+//     await page.goto('https://www.saucedemo.com/');
+//     await page.getByLabel('Username').fill('standard_user');
+//     await page.getByLabel('Password').fill('secret_sauce');
+//     await page.getByRole('button', { name: 'Login' }).click();
+//     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
 
-
-
-    // await expect(page).toHaveURL('https://www.saucedemo.com/cart.html')
-})
+//     const products = page.locator('.inventory_item')
+//     const targetProductNames = await products.locator('.inventory_item_name ').allTextContents()//Playwright strongly recommends using User-Visible Locators (role, text, label) or Test IDs because CSS classes often change when designers update styles.
+//     const targetProductPrices = (await products.locator('.inventory_item_price ').allTextContents()).map(x => +x.replace('$', ''))
+//     console.log(targetProductNames)
+//     console.log(Math.max(...targetProductPrices))
+//     expect(targetProductNames.length).toEqual(6)
+//     expect(targetProductNames).toContain('Sauce Labs Backpack')
+//     // await expect(page).toHaveURL('https://www.saucedemo.com/cart.html')
+// })
