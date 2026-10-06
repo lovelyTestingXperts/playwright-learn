@@ -12,7 +12,7 @@ export class LoginPage extends BasePage {
         this.usernameInput = page.getByLabel('Username');
         this.passwordInput = page.getByLabel('Password');
         this.loginButton = page.getByRole('button', { name: 'Login' });
-        this.errorMessage = page.getByTestId('error');
+        this.errorMessage = page.locator('[data-test="error"]');
     }
 
 
@@ -22,6 +22,7 @@ export class LoginPage extends BasePage {
 
 
     async login(username: string, password: string) {
+        await this.navigateToLoginPage();
         await this.usernameInput.fill(username);
         await this.passwordInput.fill(password);
         await this.loginButton.click();
