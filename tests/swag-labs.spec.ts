@@ -54,17 +54,17 @@ Locator
 
 
 // test('login', async ({ page }) => {
-//     await page.goto('https://www.saucedemo.com/');
+//     await page.goto('/');
 //     await page.getByLabel('Username').fill('standard_user');
 //     await page.getByLabel('Password').fill('secret_sauce');
 //     await page.getByRole('button', { name: 'Login' }).click();
 //     // Expect a title "to contain" a substring.
-//     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+//     await expect(page).toHaveURL('/inventory.html');
 // });
 
 
 // test('check products', async ({ page }) => {
-//     await page.goto('https://www.saucedemo.com/');
+//     await page.goto('/');
 //     await page.getByLabel('Username').fill('standard_user');
 //     await page.getByLabel('Password').fill('secret_sauce');
 //     await page.getByRole('button', { name: 'Login' }).click();
@@ -72,10 +72,10 @@ Locator
 //     const targetProduct = await products.filter({ hasText: 'Sauce Labs Backpack' })
 //     await targetProduct.getByRole('button', { name: 'Add to cart' }).click()
 //     await page.locator('.shopping_cart_container').click()
-//     await expect(page).toHaveURL('https://www.saucedemo.com/cart.html')
+//     await expect(page).toHaveURL('/cart.html')
 // })
 // test('check product price', async ({ page }) => {
-//     await page.goto('https://www.saucedemo.com/');
+//     await page.goto('/');
 //     await page.getByLabel('Username').fill('standard_user');
 //     await page.getByLabel('Password').fill('secret_sauce');
 //     await page.getByRole('button', { name: 'Login' }).click();
@@ -85,15 +85,15 @@ Locator
 //     const addToCartBtn = await targetProduct.locator('.btn_inventory')
 //     await addToCartBtn.click()
 //     await expect(addToCartBtn).toHaveText('Remove')
-//     // await expect(page).toHaveURL('https://www.saucedemo.com/cart.html')
+//     // await expect(page).toHaveURL('/cart.html')
 // })
 // test('check product quantity and max price', async ({ page }) => {
 //     // login
-//     await page.goto('https://www.saucedemo.com/');
+//     await page.goto('/');
 //     await page.getByLabel('Username').fill('standard_user');
 //     await page.getByLabel('Password').fill('secret_sauce');
 //     await page.getByRole('button', { name: 'Login' }).click();
-//     await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+//     await expect(page).toHaveURL('/inventory.html');
 
 //     const products = page.locator('.inventory_item')
 //     const targetProductNames = await products.locator('.inventory_item_name ').allTextContents()//Playwright strongly recommends using User-Visible Locators (role, text, label) or Test IDs because CSS classes often change when designers update styles.
@@ -102,5 +102,5 @@ Locator
 //     console.log(Math.max(...targetProductPrices))
 //     expect(targetProductNames.length).toEqual(6)
 //     expect(targetProductNames).toContain('Sauce Labs Backpack')
-//     // await expect(page).toHaveURL('https://www.saucedemo.com/cart.html')
+//     // await expect(page).toHaveURL('/cart.html')
 // })

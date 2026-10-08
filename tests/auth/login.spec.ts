@@ -20,7 +20,7 @@ test.describe('Login Tests', () => {
         const { email, password } = VALID_USER
         await loginPage.login(email, password);
         // Verify page URL
-        await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+        await expect(page).toHaveURL('/inventory.html');
         //  Verify page title
         await expect(page).toHaveTitle('Swag Labs');
         //  Verify header

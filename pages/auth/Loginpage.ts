@@ -17,7 +17,7 @@ export class LoginPage extends BasePage {
 
 
     async navigateToLoginPage() {
-        await this.page.goto('https://www.saucedemo.com'); // from where i should i get this url ? 
+        await this.page.goto(''); // from where i should i get this url ? 
     }
 
 
